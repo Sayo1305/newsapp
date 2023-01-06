@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './components/Footer'
 import HeroPage from './components/HeroPage'
 import Navbar from './components/Navbar'
 import Topic from './components/Topic'
@@ -13,6 +14,7 @@ const MainPage = () => {
       </HeroPage>
       <TrendingPage/>
       <Topic/>
+      <Footer/>
     </div>
   )
 }
