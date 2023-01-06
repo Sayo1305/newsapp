@@ -4,22 +4,15 @@ const Login=()=>{
    const navigator=useNavigate();
 
    return(
-<div class="relative flex h-full w-full">
-  <div class="h-screen w-1/2 bg-black">
-    <div class="mx-auto flex h-full w-2/3 flex-col justify-center text-white xl:w-1/2">
-      <div>
-        <p class="text-2xl">Login|</p>
-        <p>please login to continue|</p>
+<div class="relative flex h-full w-full bg-blue-50">
+  <div class="h-screen w-screen bg-black">
+    <div class="mx-auto flex h-full w-full flex-col justify-center text-white xl:w-1/2">
+      <div className="text-5xl">
+        <p >Welcome to OMNI</p>
+        
       </div>
-      <div class="my-6">
-        <button class="flex w-full justify-center rounded-3xl border-none bg-white p-1 text-black hover:bg-gray-200 sm:p-2"><img src="https://freesvg.org/img/1534129544.png" class="mr-2 w-6 object-fill" />Sign in with Google</button>
-      </div>
-      <div>
-        <fieldset class="border-t border-solid border-gray-600">
-          <legend class="mx-auto px-2 text-center text-sm">Or login via our secure system</legend>
-        </fieldset>
-      </div>
-      <div class="mt-10">
+     
+      <div className="mt-20 ">
         <form>
           <div>
             <label class="mb-2.5 block font-extrabold" for="email">Email</label>
@@ -38,14 +31,14 @@ const Login=()=>{
             </div>
           </div>
           <div class="my-10">
-            <button  onclick={()=>{navigator("/home")}}class="w-full rounded-full bg-orange-600 p-5 hover:bg-orange-800">Login</button>
+            <button  onclick={()=>{navigator("/home")}} class="w-full rounded-full bg-orange-600 p-4 hover:bg-orange-800">Login</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="h-screen w-1/2 bg-blue-600">
-    <img src="https://images.pexels.com/photos/2523959/pexels-photo-2523959.jpeg" class="h-full w-full" />
+  <div class="h-screen w-screen bg-black">
+    {/* <img className="h-full w-full" /> */}
   </div>
 </div>
 )
