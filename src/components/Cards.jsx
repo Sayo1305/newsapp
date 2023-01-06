@@ -23,7 +23,7 @@ const Cards = ({ data }) => {
         <div className="text-[10px] font-semibold ">{DataDate}</div>
         <button>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg "
             width="16"
             height="16"
             fill-color="currentColor"
