@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center gap-3">
                   {/* <input className="rounded-lg p-2 outline-none"  type={"text"} placeholder="Topic"></input> */}
                   {/* <button className="cursor-pointer bg-black text-white p-2 border-1 rounded-xl">search</button> */}
-                  <nav className="py-4 px-6 text-sm font-medium">
+                  <nav className="py-4 px-6 text-sm font-medium cursor-pointer">
       <ul className="flex space-x-20 font-normal text-4xl italic">
       <li>About</li>
       <li>Contact</li>

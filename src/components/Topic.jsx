@@ -6,7 +6,7 @@ const Topic = () => {
  const [data,setdata]=useState([]);
  const [subject,setsubject]=useState("business");
 useEffect(()=>{
-axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${subject}&apiKey=${process.env.REACT_APP_APIKEY}`).catch((err)=>{
+axios.get(  `https://newsapi.org/v2/top-headlines?country=in&category=${subject}&apiKey=${process.env.REACT_APP_APIKEY}`).catch((err)=>{
     console.log(err);
 }).then((response)=>{setdata(response.data.articles)
     console.log(response)
@@ -23,50 +23,23 @@ axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${subject}&a
 					
 						
 						
-						{/* <!-- Primary Navbar items --> */}
-						<div class="hidden md:flex items-center space-x-20 ">
-							<a  class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Home</a>
-							<a onClick={(e)=>{e.preventDefault(); setsubject('Entertainment')}} class="py-4 px-2 text-gray-500 font-semibold focus:text-green-500 transition duration-300">Entertainment</a>
-							<a  class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Health</a>
-							<a  class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Politics</a>
-              <a  class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Business</a>
-              <a class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Science</a>
-              <a class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Technology</a>
-              <a class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Sports</a>
+					
+						<div className="hidden md:flex items-center space-x-20 cursor-pointer ">
+							<a  className=" py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Home</a>
+							<a onClick={(e)=>{e.preventDefault(); setsubject('Entertainment')}} className=" py-4 px-2 text-gray-500 font-semibold focus:text-green-500 transition duration-300">Entertainment</a>
+							<a  onClick={(e)=>{e.preventDefault(); setsubject('Health')}} className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Health</a>
+							<a  onClick={(e)=>{e.preventDefault(); setsubject('Politics')}}className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Politics</a>
+              <a  onClick={(e)=>{e.preventDefault(); setsubject('Business')}} className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Business</a>
+              <a onClick={(e)=>{e.preventDefault(); setsubject('Science')}} className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Science</a>
+              <a onClick={(e)=>{e.preventDefault(); setsubject('Technology')}} className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Technology</a>
+              <a onClick={(e)=>{e.preventDefault(); setsubject('Sports')}} className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Sports</a>
             </div>
 					</div>
+				
 					
-					{/* <!-- Mobile menu button --> */}
-					<div class="md:hidden flex items-center">
-						<button class="outline-none mobile-menu-button">
-						<svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
-							x-show="!showMenu"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
-					</div>
 				</div>
 			</div>
-			{/* <!-- mobile menu --> */}
-			<div class="hidden mobile-menu">
-				<ul class="">
-					<li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Popular</a></li>
-          <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">International</a></li>
-					<li><a href="#services" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Politics</a></li>
-					<li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Sports</a></li>
-					<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Business</a></li>
-          <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Science</a></li>
-          <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">IT</a></li>
-
-				</ul>
-			</div>
+			
 	
 		</nav>
 		

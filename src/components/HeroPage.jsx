@@ -10,8 +10,8 @@ const HeroPage = () => {
       {/* #EF8172 */}
       <div className='flex flex-col gap-5'>
             <div className='text-[7rem] font-bold'>Stay curious.</div>
-            <div className='text-2xl font-semibold'>Discover News , facts from writer and from any topic</div>
-            <button className='cursor-pointer w-[120px] text-center bg-black text-white p-2 border-1 rounded-xl' onClick={()=>{navigator("/")}}>Gets Started</button>
+            <div className='text-3xl font-semibold'>Discover News , facts from around the World and from any topic.</div>
+            <button className='cursor-pointer w-[150px] h-[35px] text-center bg-black text-white p-3.5 border-1 rounded-xl' onClick={()=>{navigator("/")}}>Get Started</button>
       
       </div>
     </div>
