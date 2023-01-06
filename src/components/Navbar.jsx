@@ -5,7 +5,7 @@ const Navbar = () => {
 
   return <>
 
-  <div className="w-full  flex justify-between items-center border-b-[1px] border-b-black   h-auto p-5 bg-pink-sp/90">
+  <div className="w-full  flex justify-between items-center border-b-[1px] border-b-black   h-auto p-3 bg-pink-sp/90">
       <div className="font-bold text-2xl">
             News App
       </div>
