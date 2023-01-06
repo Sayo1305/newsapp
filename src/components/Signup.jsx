@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+  const navigator=useNavigate();
   return (
 <div class="bg-grey-lighter min-h-screen flex flex-col">
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
@@ -31,7 +33,7 @@ const Signup = () => {
 
                     <button
                         type="submit"
-                        class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                        class="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1" onclick={navigator('/login')}
                     >Create Account</button>
 
                     <div class="text-center text-sm text-grey-dark mt-4">
@@ -50,6 +52,7 @@ const Signup = () => {
                     <button class="no-underline border-b border-blue text-blue" href="../login/">
                         Log in
                     </button>
+                
                 </div>
             </div>
         </div>

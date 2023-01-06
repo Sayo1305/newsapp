@@ -1,6 +1,9 @@
 import React from "react"
-const login=()=>{
-    return(
+import { useNavigate } from "react-router-dom"
+const Login=()=>{
+   const navigator=useNavigate();
+
+   return(
 <div class="relative flex h-full w-full">
   <div class="h-screen w-1/2 bg-black">
     <div class="mx-auto flex h-full w-2/3 flex-col justify-center text-white xl:w-1/2">
@@ -35,7 +38,7 @@ const login=()=>{
             </div>
           </div>
           <div class="my-10">
-            <button class="w-full rounded-full bg-orange-600 p-5 hover:bg-orange-800">Login</button>
+            <button  onclick={()=>{navigator("/home")}}class="w-full rounded-full bg-orange-600 p-5 hover:bg-orange-800">Login</button>
           </div>
         </form>
       </div>
@@ -47,4 +50,4 @@ const login=()=>{
 </div>
 )
 }
-export default login
+export default Login
