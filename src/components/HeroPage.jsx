@@ -11,7 +11,7 @@ const HeroPage = () => {
       <div className='flex flex-col gap-5'>
             <div className='text-[7rem] font-bold'>Stay curious.</div>
             <div className='text-3xl font-semibold'>Discover News , facts from around the World and from any topic.</div>
-            <button className='cursor-pointer w-[150px] h-[35px] text-center bg-black text-white p-3.5 border-1 rounded-xl' onClick={()=>{navigator("/")}}>Get Started</button>
+            <button className='cursor-pointer w-[150px] h-[35px] flex justify-center items-center text-center bg-black text-white p-3.5 border-1 rounded-xl' onClick={()=>{navigator("/")}}>Get Started</button>
       
       </div>
     </div>

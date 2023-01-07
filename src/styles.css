@@ -1,60 +1,52 @@
 .navbar {
-    padding: 0 0 4.5rem;
+  padding: 0 0 4.5rem;
 }
 
 .nav-item {
-    padding: 0 18px;
-
+  padding: 0 18px;
 }
 .nav-link {
-    font-size: 1.2rem;
-    
-    font-weight: lighter;
+  font-size: 1.2rem;
+
+  font-weight: lighter;
 }
 .navbar-brand {
-    font-family: "Ubuntu";
-    font-weight: bold;
-    font-size: 2.5rem;
-
+  font-family: "Ubuntu";
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 .navbar {
-    padding: 0 0 4.5rem;
+  padding: 0 0 4.5rem;
 }
 
 .nav-item {
-    padding: 0 18px;
-color:red;
-border:2px solid Tomato;
+  padding: 0 18px;
+  color: red;
+  border: 2px solid Tomato;
 }
 .nav-link {
-    font-size: 1.2rem;
-    font-weight: lighter;
+  font-size: 1.2rem;
+  font-weight: lighter;
 }
 #testimonials {
-    background-color:beige;
-   
-
+  background-color: beige;
 }
-#testimonials-carousel{
-  
-    padding: 7% 15%;
-
+#testimonials-carousel {
+  padding: 7% 15%;
 }
 /* testimonial image */
 .testimonial-img {
-    /* width: 20%; */
-    border-radius: 60%;
-    margin: 3%;
-    align-content: center;
+  /* width: 20%; */
+  border-radius: 60%;
+  margin: 3%;
+  align-content: center;
 }
 
 .testimonial-title {
-    color:rgb(100, 80, 80);
-    font-weight: 200;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 31px;
-    font-size: 30px;
+  color: rgb(100, 80, 80);
+  font-weight: 200;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 31px;
+  font-size: 30px;
 }
-
-
