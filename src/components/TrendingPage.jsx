@@ -46,7 +46,9 @@ const TrendingPage = () => {
           );
         });
       setdata(JSON.parse(localStorage.getItem("api-data1")));
-      setrefresh(false);
+      setTimeout(() => {
+        setrefresh(false);
+      }, 1000);
     }
   }, [refresh]);
   return (
@@ -54,14 +56,34 @@ const TrendingPage = () => {
       <div className="flex gap-3 items-center">
         <img src={trendingicon} className="w-[50px] h-[50px]" alt="trend" />
         <div className="text-2xl font-semibold">trending On news App</div>
-        <img
-          onClick={() => {
-            setrefresh(!refresh);
-          }}
-          src={refreshicon}
-          className="w-[40px] h-[40px]"
-          alt="trend"
-        />
+
+        {refresh === true ? (
+          <div
+            onClick={() => {
+              setrefresh(!refresh);
+            }}
+            className="spinner-border
+          animate-spin
+          inline-block
+          w-8
+          h-8
+          border-4
+          rounded-full
+          text-green-500"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        ) : (
+          <img
+            onClick={() => {
+              setrefresh(!refresh);
+            }}
+            src={refreshicon}
+            className="w-[40px] h-[40px] cursor-pointer"
+            alt="trend"
+          />
+        )}
       </div>
       <div
         ref={myref}
@@ -69,12 +91,12 @@ const TrendingPage = () => {
       >
         {data &&
           data.map((val, idx) => (
-              <div className="flex gap-2 sm:w-full md:w-1/4">
-                <div className="text-3xl text-slate-400 font-bold">
-                  0{idx + 1}
-                </div>
-                <Cards key={idx} data={val} />
+            <div className="flex gap-2 sm:w-full md:w-1/4">
+              <div className="text-3xl text-slate-400 font-bold">
+                0{idx + 1}
               </div>
+              <Cards key={idx} data={val} />
+            </div>
           ))}
       </div>
     </div>

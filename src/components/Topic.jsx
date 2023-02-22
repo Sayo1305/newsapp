@@ -1,11 +1,30 @@
 import axios from "axios";
-// import { response } from 'express';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import React, { useEffect, useState } from "react";
+import Noimage from "../assets/images/no-image.png";
 
 const Topic = () => {
   const [data, setdata] = useState([]);
   const [subject, setsubject] = useState("business");
   const [Onchange, setOnchange] = useState(false);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
   useEffect(() => {
     if (Onchange === true) {
       axios
@@ -42,148 +61,122 @@ const Topic = () => {
     setdata(JSON.parse(localStorage.getItem("apidata2")));
   }, []);
   return (
-    <div>
+    <div className="h-auto flex flex-col gap-1 p-2">
       <div>
-        <nav class="bg-white shadow-lg">
-          <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-              <div class="flex space-x-7">
-                <div className="hidden md:flex items-center space-x-20 cursor-pointer ">
-                  <a className=" py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">
-                    Home
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Entertainment");
-                      setOnchange(true);
-                    }}
-                    className=" py-4 px-2 text-gray-500 font-semibold focus:text-green-500 transition duration-300"
-                  >
-                    Entertainment
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Health");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    Health
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("general");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    General
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Business");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    Business
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Science");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    Science
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Technology");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    Technology
-                  </a>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setsubject("Sports");
-                      setOnchange(true);
-                    }}
-                    className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                  >
-                    Sports
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div id="testimonials">
-        <div
-          id="testimonials-carousel"
-          className="carousel slide"
-          data-ride="False"
-        >
-          <div className="carousel-inner h-auto">
-            {data &&
-              data.map((mp, idx) => (
-                <div key={idx}>
-                  {idx === 0 ? (
-                    <div className="carousel-item active h-auto">
-                      <div className="flex flex-col justify-center items-center h-auto">
-                      <h2 className="testimonial-title text-4xl font-medium">{mp.title}</h2>
-                      <img
-                        className="w-[250px] h-[250px] rounded-md"
-                        src={mp.urlToImage}
-                        alt="Content-img"
-                      />
-                      <em className="text-black h-2.5">{mp.content}</em>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="carousel-item h-auto">
-                      <div className="flex flex-col justify-center items-center h-auto">
-                      <h2 className="testimonial-title text-4xl font-medium">{mp.title}</h2>
-                      <img
-                        className="w-[250px] h-[250px] rounded-md"
-                        src={mp.urlToImage}
-                        alt="Content-img"
-                      />
-                      <em className="text-black h-2.5">{mp.content}</em>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#testimonials-carousel"
-            data-bs-slide="prev"
+        <div className="flex flex-wrap justify-evenly w-full">
+          <a className=" p-3 cursor-pointer text-green-500 border-b-4 border-green-500 font-semibold ">
+            Home
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Entertainment");
+              setOnchange(true);
+            }}
+            className=" p-3 cursor-pointer  text-green-500 font-semibold"
           >
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#testimonials-carousel"
-            data-bs-slide="next"
+            Entertainment
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Health");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
           >
-            <span className="carousel-control-next-icon"></span>
-          </button>
+            Health
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("general");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >
+            General
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Business");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >
+            Business
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Science");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >
+            Science
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Technology");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >
+            Technology
+          </a>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setsubject("Sports");
+              setOnchange(true);
+            }}
+            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >
+            Sports
+          </a>
         </div>
       </div>
+      <Carousel
+        showThumbs={false}
+        centerMode={true}
+        infiniteLoop={true}
+        showArrow={true}
+        className="w-full md:w-3/4 h-full bg-black mx-auto my-0 p-2"
+      >
+        {data &&
+          data.map((val, idx) => (
+            <div
+              key={idx}
+              className="md:w-[500px] md:h-[500px] w-[300px] h-[300px] rounded-md bg-[#f3f3f3] mx-auto my-0 p-2"
+            >
+              <div className="top-0 left-0 w-full text-center font-semibold text-sm md:text-xl text-white bg-black">
+                <a target={"_blank"} href={val.url}>{val.title}</a>
+              </div>
+              {val.urlToImage === null ? (
+                <>
+                  
+                    <img
+                      src={Noimage}
+                      className="cursor-pointer w-full h-full bg-cover"
+                      alt="pic"
+                    />
+            
+                </>
+              ) : (
+                
+                <img
+                  src={val.urlToImage}
+                  className="w-full h-full bg-cover"
+                  alt="pic"
+                />
+              
+              )}
+            </div>
+          ))}
+      </Carousel>
     </div>
   );
 };
