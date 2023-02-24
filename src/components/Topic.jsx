@@ -28,37 +28,46 @@ const Topic = () => {
   useEffect(() => {
     if (Onchange === true) {
       axios
-        .get(
-          `https://newsapi.org/v2/top-headlines?country=in&category=${subject}&apiKey=${process.env.REACT_APP_APIKEY}`
-        )
+        .post(`http://localhost:8000/caroselnews`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(subject),
+        })
         .catch((err) => {
           console.log(err);
         })
         .then((response) => {
           setdata(response.data.articles);
-          console.log(response);
         });
       setOnchange(false);
     }
   }, [subject]);
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("apidata2") === null)) {
+    if (JSON.parse(localStorage.getItem("api-data2") === null)) {
       axios
-        .get(
-          `https://newsapi.org/v2/top-headlines?country=in&category=${subject}&apiKey=${process.env.REACT_APP_APIKEY}`
-        )
+        .post(`http://localhost:8000/caroselnews`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(subject),
+        })
         .catch((err) => {
           console.log(err);
         })
         .then((response) => {
-          localStorage.setItem(
-            "apidata2",
-            JSON.stringify(response.data.articles)
-          );
-          console.log(response);
+          if (response.status === 200) {
+            localStorage.setItem(
+              "api-data2",
+              JSON.stringify(response.data.articles)
+            );
+            setdata(response.data.articles);
+          }
         });
     }
-    setdata(JSON.parse(localStorage.getItem("apidata2")));
+    setdata(JSON.parse(localStorage.getItem("api-data2")));
   }, []);
   return (
     <div className="h-auto flex flex-col gap-1 p-2">
@@ -153,26 +162,24 @@ const Topic = () => {
               className="md:w-[500px] md:h-[500px] w-[300px] h-[300px] rounded-md bg-black mx-auto my-0 p-2"
             >
               <div className="top-0 left-0 w-full text-center font-semibold text-sm md:text-xl text-white bg-black">
-                <a target={"_blank"} href={val.url}>{val.title}</a>
+                <a target={"_blank"} href={val.url}>
+                  {val.title}
+                </a>
               </div>
               {val.urlToImage === null ? (
                 <>
-                  
-                    <img
-                      src={Noimage}
-                      className="cursor-pointer w-full h-full bg-cover"
-                      alt="pic"
-                    />
-            
+                  <img
+                    src={Noimage}
+                    className="cursor-pointer w-full h-full bg-cover"
+                    alt="pic"
+                  />
                 </>
               ) : (
-                
                 <img
                   src={val.urlToImage}
                   className="w-full h-full bg-cover"
                   alt="pic"
                 />
-              
               )}
             </div>
           ))}

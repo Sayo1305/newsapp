@@ -19,18 +19,21 @@ const SearchPage = () => {
     }
     setTimeout(() => {}, 1000);
     axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${searchtopic}&from=2023-02-21&sortBy=publishedAt&apiKey=${process.env.REACT_APP_APIKEY}`
-      )
+      .post(`http://localhost:8000/search`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(searchtopic),
+      })
       .catch((Err) => console.log(Err))
       .then((response) => {
         setdata(response);
-        console.log(response)
         setSearchClick(false);
       });
   };
   return (
-    <div className="bg-slate-200 w-full h-screen">
+    <div className="bg-slate-200 w-full h-auto">
       <div className="w-full h-auto bg-og p-2 flex justify-between items-center">
         <div
           className="font-semibold text-xl cursor-pointer"
@@ -66,7 +69,14 @@ const SearchPage = () => {
             Search
           </div>
         </div>
-        <div onClick={()=>{navigator("/")}} className="cursor-pointer text-xl font-semibold">Home</div>
+        <div
+          onClick={() => {
+            navigator("/");
+          }}
+          className="cursor-pointer text-xl font-semibold"
+        >
+          Home
+        </div>
       </div>
       {data.length === 0 && (
         <div className="w-full text-center md:text-3xl p-2 text-emerald-700 font-semibold">

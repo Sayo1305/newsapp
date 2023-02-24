@@ -10,22 +10,21 @@ const TrendingPage = () => {
   const [data, setdata] = useState([]);
   const [refresh, setrefresh] = useState(false);
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("api-data1") === null)) {
+    if (localStorage.getItem("api-data1") === null) {
       axios
         .get(
-          `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&apiKey=${process.env.REACT_APP_APIKEY}`
+          `http://localhost:8000/trendingnews`
         )
         .catch((err) => {
           console.log(err);
         })
         .then((response) => {
-          console.log(response);
-          localStorage.setItem(
-            "api-data1",
-            JSON.stringify(response.data.articles)
-          );
+          if(response.status === 200)
+          {
+            localStorage.setItem("api-data1" , JSON.stringify(response.data.articles));
+            setdata(response.data.articles);
+          }
         });
-      console.log(JSON.parse(localStorage.getItem("api-data1")));
     }
     setdata(JSON.parse(localStorage.getItem("api-data1")));
   }, []);
@@ -33,19 +32,18 @@ const TrendingPage = () => {
     if (refresh === true) {
       axios
         .get(
-          `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&apiKey=${process.env.REACT_APP_APIKEY}`
+          `http://localhost:8000/trendingnews`
         )
         .catch((err) => {
           console.log(err);
         })
         .then((response) => {
-          console.log(response);
-          localStorage.setItem(
-            "api-data1",
-            JSON.stringify(response.data.articles)
-          );
+          if(response.status === 200)
+          {
+            localStorage.setItem("api-data1" , JSON.stringify(response.data.articles));
+            setdata(response.data.articles);
+          }
         });
-      setdata(JSON.parse(localStorage.getItem("api-data1")));
       setTimeout(() => {
         setrefresh(false);
       }, 1000);
