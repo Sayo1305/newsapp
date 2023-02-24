@@ -28,7 +28,7 @@ const Topic = () => {
   useEffect(() => {
     if (Onchange === true) {
       axios
-        .post(`http://localhost:8000/caroselnews`, {
+        .post(`https://news-app-backend-bignner.onrender.com/caroselnews`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Topic = () => {
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("api-data2") === null)) {
       axios
-        .post(`http://localhost:8000/caroselnews`, {
+        .post(`https://news-app-backend-bignner.onrender.com/caroselnews`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
