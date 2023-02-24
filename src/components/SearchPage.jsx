@@ -35,7 +35,7 @@ const SearchPage = () => {
         <div
           className="font-semibold text-xl cursor-pointer"
           onClick={() => {
-            navigator("/Home");
+            navigator("/");
           }}
         >
           <svg
@@ -43,7 +43,7 @@ const SearchPage = () => {
             width="26"
             height="26"
             fill="currentColor"
-            class="bi bi-arrow-return-left"
+            className="bi bi-arrow-return-left"
             viewBox="0 0 16 16"
           >
             <path
@@ -66,7 +66,7 @@ const SearchPage = () => {
             Search
           </div>
         </div>
-        <div onClick={()=>{navigator("/Home")}} className="cursor-pointer text-xl font-semibold">Home</div>
+        <div onClick={()=>{navigator("/")}} className="cursor-pointer text-xl font-semibold">Home</div>
       </div>
       {data.length === 0 && (
         <div className="w-full text-center md:text-3xl p-2 text-emerald-700 font-semibold">

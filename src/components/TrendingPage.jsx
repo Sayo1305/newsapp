@@ -72,7 +72,7 @@ const TrendingPage = () => {
           text-green-500"
             role="status"
           >
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
           <img
@@ -91,7 +91,7 @@ const TrendingPage = () => {
       >
         {data &&
           data.map((val, idx) => (
-            <div className="flex gap-2 sm:w-full md:w-1/4">
+            <div key={idx} className="flex gap-2 sm:w-full md:w-1/4">
               <div className="text-3xl text-slate-400 font-bold">
                 0{idx + 1}
               </div>

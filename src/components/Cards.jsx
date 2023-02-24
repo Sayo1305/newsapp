@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
     setDatadate(d.toUTCString());
   }, []);
   return (
-    <div className="shadow-xl w-full flex flex-col gap-3 h-auto p-2 rounded-lg">
+    <div className="shadow-xl bg-white w-full flex flex-col gap-3 h-auto p-2 rounded-lg">
       <div className="flex items-center gap-2">
         <div>
           <img

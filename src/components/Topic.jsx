@@ -63,8 +63,8 @@ const Topic = () => {
   return (
     <div className="h-auto flex flex-col gap-1 p-2">
       <div>
-        <div className="flex flex-wrap justify-evenly w-full">
-          <a className=" p-3 cursor-pointer text-green-500 border-b-4 border-green-500 font-semibold ">
+        <div className="flex flex-wrap justify-evenly w-full rounded-md shadow-lg">
+          <a className=" p-3 text-gray-500 cursor-pointer text-green-500  font-semibold ">
             Home
           </a>
           <a
@@ -73,7 +73,7 @@ const Topic = () => {
               setsubject("Entertainment");
               setOnchange(true);
             }}
-            className=" p-3 cursor-pointer  text-green-500 font-semibold"
+            className=" p-3 cursor-pointer text-gray-500 text-green-500 font-semibold"
           >
             Entertainment
           </a>
@@ -144,13 +144,13 @@ const Topic = () => {
         centerMode={true}
         infiniteLoop={true}
         showArrow={true}
-        className="w-full md:w-3/4 h-full bg-black mx-auto my-0 p-2"
+        className="w-full md:w-3/4 h-full bg-slate-200 shadow-lg mx-auto my-0 p-2"
       >
         {data &&
           data.map((val, idx) => (
             <div
               key={idx}
-              className="md:w-[500px] md:h-[500px] w-[300px] h-[300px] rounded-md bg-[#f3f3f3] mx-auto my-0 p-2"
+              className="md:w-[500px] md:h-[500px] w-[300px] h-[300px] rounded-md bg-black mx-auto my-0 p-2"
             >
               <div className="top-0 left-0 w-full text-center font-semibold text-sm md:text-xl text-white bg-black">
                 <a target={"_blank"} href={val.url}>{val.title}</a>
