@@ -10,10 +10,10 @@ const TrendingPage = () => {
   const [data, setdata] = useState([]);
   const [refresh, setrefresh] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem("api-data1") === null) {
+    if (localStorage.getItem("api-data1") === null || localStorage.getItem("api-data1") === undefined) {
       axios
         .get(
-          `http://localhost:8000/trendingnews`
+          `https://news-app-backend-bignner.onrender.com/trendingnews`
         )
         .catch((err) => {
           console.log(err);
@@ -26,13 +26,16 @@ const TrendingPage = () => {
           }
         });
     }
-    setdata(JSON.parse(localStorage.getItem("api-data1")));
+    if(localStorage.getItem("api-data1") !== undefined)
+    {
+      setdata(JSON.parse(localStorage.getItem("api-data1")));
+    }
   }, []);
   useEffect(() => {
     if (refresh === true) {
       axios
         .get(
-          `http://localhost:8000/trendingnews`
+          `https://news-app-backend-bignner.onrender.com/trendingnews`
         )
         .catch((err) => {
           console.log(err);

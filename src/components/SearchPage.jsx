@@ -19,7 +19,7 @@ const SearchPage = () => {
     }
     setTimeout(() => {}, 1000);
     axios
-      .post(`http://localhost:8000/search`, {
+      .post(`https://news-app-backend-bignner.onrender.com/search`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
