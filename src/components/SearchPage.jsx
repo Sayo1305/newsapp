@@ -55,9 +55,9 @@ const SearchPage = () => {
             />
           </svg>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center w-1/2 justify-between">
           <input
-            className="outline-none rounded-sm p-2 w-[20vw]"
+            className="outline-none rounded-sm p-2 md:w-[20vw] w-2/3"
             type={"text"}
             placeholder="Enter a Topic"
             onChange={handle_change}

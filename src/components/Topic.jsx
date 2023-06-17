@@ -1,6 +1,6 @@
 import axios from "axios";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import React, { useEffect, useState } from "react";
 import Noimage from "../assets/images/no-image.png";
 
@@ -11,13 +11,13 @@ const Topic = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 2,
       slidesToSlide: 2, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 1, // optional, default to 1.
+      items: 1,
+      slidesToSlide: 2, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -82,7 +82,8 @@ const Topic = () => {
               setsubject("Entertainment");
               setOnchange(true);
             }}
-            className=" p-3 cursor-pointer text-gray-500 text-green-500 font-semibold"
+            className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Entertainment" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Entertainment
           </a>
@@ -92,7 +93,8 @@ const Topic = () => {
               setsubject("Health");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Health" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Health
           </a>
@@ -102,7 +104,8 @@ const Topic = () => {
               setsubject("general");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "general" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             General
           </a>
@@ -112,7 +115,8 @@ const Topic = () => {
               setsubject("Business");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Business" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Business
           </a>
@@ -122,7 +126,8 @@ const Topic = () => {
               setsubject("Science");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Science" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Science
           </a>
@@ -132,7 +137,8 @@ const Topic = () => {
               setsubject("Technology");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Technology" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Technology
           </a>
@@ -142,26 +148,73 @@ const Topic = () => {
               setsubject("Sports");
               setOnchange(true);
             }}
-            className="p-3 cursor-pointer text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+                       className={`p-3 cursor-pointer text-gray-500 text-green-500 font-semibold 
+            ${subject === "Sports" ? "bg-[#EF8172] text-white rounded-md" : ""}`}
           >
             Sports
           </a>
         </div>
       </div>
       <Carousel
-        showThumbs={false}
-        centerMode={true}
-        infiniteLoop={true}
-        showArrow={true}
-        className="w-full md:w-3/4 h-full bg-slate-200 shadow-lg mx-auto my-0 p-2"
+        additionalTransfrom={0}
+        arrows
+        autoPlaySpeed={3000}
+        centerMode={false}
+        className=""
+        containerClass="container-with-dots"
+        dotListClass=""
+        draggable
+        focusOnSelect={false}
+        infinite
+        itemClass=""
+        keyBoardControl
+        minimumTouchDrag={80}
+        pauseOnHover
+        renderArrowsWhenDisabled={false}
+        renderButtonGroupOutside={false}
+        renderDotsOutside={false}
+        responsive={{
+          desktop: {
+            breakpoint: {
+              max: 3000,
+              min: 1024,
+            },
+            items: 3,
+            partialVisibilityGutter: 40,
+          },
+          mobile: {
+            breakpoint: {
+              max: 464,
+              min: 0,
+            },
+            items: 1,
+            partialVisibilityGutter: 30,
+          },
+          tablet: {
+            breakpoint: {
+              max: 1024,
+              min: 464,
+            },
+            items: 2,
+            partialVisibilityGutter: 30,
+          },
+        }}
+        rewind={false}
+        rewindWithAnimation={false}
+        rtl={false}
+        shouldResetAutoplay
+        showDots={false}
+        sliderClass=""
+        slidesToSlide={1}
+        swipeable
       >
         {data &&
           data.map((val, idx) => (
             <div
               key={idx}
-              className="md:w-[500px] md:h-[500px] w-[300px] h-[300px] rounded-md bg-black mx-auto my-0 p-2"
+              className="md:w-3/4 bg-cover relative h-[300px] rounded-md bg-black mx-auto my-0"
             >
-              <div className="top-0 left-0 w-full text-center font-semibold text-sm md:text-xl text-white bg-black">
+              <div className="top-0 left-0 w-full absolute text-center font-semibold text-sm text-white bg-black">
                 <a target={"_blank"} href={val.url}>
                   {val.title}
                 </a>
@@ -170,16 +223,12 @@ const Topic = () => {
                 <>
                   <img
                     src={Noimage}
-                    className="cursor-pointer w-full h-full bg-cover"
+                    className="cursor-pointer w-full h-full "
                     alt="pic"
                   />
                 </>
               ) : (
-                <img
-                  src={val.urlToImage}
-                  className="w-full h-full bg-cover"
-                  alt="pic"
-                />
+                <img src={val.urlToImage} className="w-full h-full" alt="pic" />
               )}
             </div>
           ))}

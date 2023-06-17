@@ -13,7 +13,7 @@ const SearchDataCont = ({ data }) => {
   };
 
   return (
-    <div className="w-full h-auto relative p-2">
+    <div className="w-full min-h-screen relative p-2">
       {data && data.status === 200 && (
         <>
           <div className="flex flex-col items-start gap-1 p-2">
