@@ -55,7 +55,7 @@ const SearchPage = () => {
             />
           </svg>
         </div>
-        <div className="flex items-center w-1/2 justify-between">
+        <div className="flex items-center w-1/2 justify-center">
           <input
             className="outline-none rounded-sm p-2 md:w-[20vw] w-2/3"
             type={"text"}

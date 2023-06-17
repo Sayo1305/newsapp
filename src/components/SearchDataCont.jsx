@@ -11,33 +11,24 @@ const SearchDataCont = ({ data }) => {
   const ChangePage = ({ selected }) => {
     setNumber(selected);
   };
+  console.log(data)
 
   return (
     <div className="w-full min-h-screen relative p-2">
       {data && data.status === 200 && (
         <>
-          <div className="flex flex-col items-start gap-1 p-2">
+          <div className="md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4   grid justify-items-center gap-2 p-2">
             {currentPost &&
               currentPost.length !== 0 &&
               currentPost.map((val, idx) => (
-                <div className="flex items-center p-2 gap-2" key={idx}>
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-cursor-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
-                    </svg>
-                  </div>
-                  <div className="font-semibold">
-                    <a href={val.url} target={"_blank"} className="">
+                <div className="flex items-center relative bg-[#7eb9f0] shadow-md flex-col bg-cover rounded-lg w-[300px] h-[400px] p-2 gap-2" key={idx}>
+                  <div> <img src={val.urlToImage} className="w-[300px] h-[180px]" alt="icon" /></div>
+                  <div className="font-semibold w-fll text-justify">
                       {val.title}
-                    </a>
                   </div>
+                  <div className="text-sm">{val.description.slice(0 , 120)}....</div>
+                  <div className="absolute bottom-2 rounded-md p-2 bg-[#000000] ">
+                    <a href={val.url} className="text-white no-underline	" target="_blank">Learn More</a></div>
                 </div>
               ))}
             {currentPost.length === 0 && (
